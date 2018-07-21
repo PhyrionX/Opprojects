@@ -6,9 +6,14 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   strict: true,
   state: {
-    app: [
+    apps: [
       {id: 1, label: 'Motacas'},
       {id: 2, label: 'OPmoney'}
-    ]
+    ],
+    login: {
+      isAuth: true,
+      username: '',
+      token: ''
+    }
   }
 })
