@@ -1,16 +1,27 @@
 <template>
   <main>
     <div class="vue-view">
-      <router-view></router-view>
+      <router-view v-if="login"></router-view>
+      <app-login v-else></app-login>
     </div>
   </main>
 </template>
 
 <script>
+import Login from '../Login'
+
 export default {
+  components: {
+    'app-login': Login
+  },
   data () {
     return {
 
+    }
+  },
+  computed: {
+    login() {
+      return this.$store.state.login.isAuth;
     }
   }
 }
@@ -30,10 +41,6 @@ main {
     padding-top: 60px;
     // padding-left: 15px;
     // padding-right: 15px;
-
-    h1 {
-      float: right;
-    }
 
     .vue-view {
       height: calc(100% - (100px));

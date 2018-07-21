@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
       {id: 2, label: 'OPmoney'}
     ],
     login: {
-      isAuth: true,
+      isAuth: false,
       username: '',
       token: ''
     }
