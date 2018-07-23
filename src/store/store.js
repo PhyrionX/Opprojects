@@ -15,5 +15,25 @@ export const store = new Vuex.Store({
       username: '',
       token: ''
     }
+  },
+  mutations: {
+    logIn(state, payload) {
+      console.log(payload);
+      state.login = {
+        isAuth: true,
+        username: 'Phyrion',
+        token: 'token'
+      }
+    }
+  },
+  actions: {
+    logIn(context) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          context.commit('logIn', 'ok');
+          resolve();
+        }, 2000)
+      })
+    }
   }
 })
