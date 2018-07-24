@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <app-header />
-    <app-sidebar />
-    <app-main />
+    <section class="section">
+      <app-sidebar />
+      <app-main />
+    </section> 
   </div>
 </template>
 
@@ -40,6 +42,13 @@ body {
     background-color: gray;
     overflow: hidden;
     height: 100%;
+
+    .section {
+      height: 100%;
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
   }
 }
 </style>

@@ -30,22 +30,22 @@ export default {
 <style scoped lang="scss">
 
 main {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 
-    background-color: rgb(255, 255, 255);
-    top: 0;
-    width: 100%;
+  background-color: rgb(255, 255, 255);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  // padding-left: 220px;
+  // padding-right: 15px;
+
+  .vue-view {
     height: 100%;
-    padding-top: 50px;
-    padding-left: 220px;
-    // padding-right: 15px;
-
-    .vue-view {
-      height: calc(100% - (50px));
-      padding: 0 20px;
-      overflow-y: scroll;
-    }
+    overflow-y: scroll;
+  }
 }
 </style>

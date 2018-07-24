@@ -30,13 +30,13 @@ export default {
 <style scoped lang="scss">
 
 aside {
-  top: 50px;
-  height: calc(100% - (50px));
-  position: fixed;
+  display: table-cell;
+  height: 100%;
   overflow: hidden;
   background-color: #41586e;
   width: 220px;
   vertical-align: top;
+  padding-top: 50px;
 
   section {
     height: 100%;
@@ -45,7 +45,20 @@ aside {
   .menu {
 
     .menu-item {
-      width: 100px;
+      height: calc(100% - (18px));
+      float: left;
+      padding: 0 20px;
+      width: calc(100% - (30px));
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      padding: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding-top: 18px;
+      color: #adbece;
     }
   }
 
