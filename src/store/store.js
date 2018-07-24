@@ -18,11 +18,17 @@ export const store = new Vuex.Store({
   },
   mutations: {
     logIn(state, payload) {
-      console.log(payload);
       state.login = {
         isAuth: true,
         username: 'Phyrion',
         token: 'token'
+      }
+    },
+    logOut(state, payload) {
+      state.login = {
+        isAuth: false,
+        username: '',
+        token: ''
       }
     }
   },
@@ -30,10 +36,13 @@ export const store = new Vuex.Store({
     logIn(context) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          context.commit('logIn', 'ok');
+          context.commit('logIn', {});
           resolve();
         }, 2000)
       })
+    },
+    logOut(context) {
+      context.commit('logOut', {});
     }
   }
 })

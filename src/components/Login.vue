@@ -74,7 +74,7 @@ export default {
         overflow: hidden;
 
         input {
-          width: 100%       
+          width: 95%
         }
 
         span {

@@ -1,12 +1,24 @@
 <template>
-  <nav v-if="login">
+  <nav v-if="isAuth">
+    <div class="brand">
+      <router-link to="/">OPProjects</router-link>
+    </div>
     <div class="menu">
-      <div class="menu-element">
-        <router-link to="/">Home</router-link>
+      <router-link class="menu-element" to="/">
+        <span>
+          Home
+        </span>
+      </router-link>
+      <router-link class="menu-element" to="/path2">
+        <span>
+          Projects
+        </span>
+      </router-link>
+    </div>
+    <div class="menu right">
+      <div v-on:click="logOut()" class="menu-element">
+        <span>Log out</span>
       </div>
-      <div class="menu-element">
-        <router-link to="/path2">Projects</router-link>
-      </div>  
     </div>
   </nav>
 </template>
@@ -19,8 +31,13 @@ export default {
     }
   },
   computed: {
-    login() {
+    isAuth() {
       return this.$store.state.login.isAuth;
+    }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('logOut');
     }
   }
 }
@@ -30,37 +47,60 @@ export default {
 nav {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: white;
-  border: 6px solid green;
+  // overflow: hidden;
+  background-color: #25313e;
   position: fixed;
   top: 0;
   height: 50px;
-  width: calc(100% - (12px));
+  width: 100%;
   z-index: 200;
+  color: #adbece;
+
+  .brand {
+    width: 220px;
+    float: left;
+    height: 100%;
+
+    a {
+      font-size: 20px;
+      line-height: 50px;
+      color: #adbece;
+      text-decoration: none;
+      padding: 0 10px;
+      font-weight: 700;
+    }
+  }
 
   .menu {
-    list-style-type: none; 
-    overflow: hidden;   
+    list-style-type: none;
+    // overflow: hidden;
     float: left;
     height: 100%;
     vertical-align: middle;
 
+    &.right {
+      float: right;
+    }
+
     .menu-element {
-      height: 100%;
+      height: calc(100% - (18px));
       float: left;
       padding: 0 20px;
-      width: 60px;
+      width: 80px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      padding: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding-top: 18px;
+      color: #adbece;
 
-      a {
-        display: block;
-        color: green;
-        text-align: center;
-        padding: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 16px;
-        margin-top: 18px;
+      &:hover {
+        background-color: #1b252e;
+        color: white;
       }
     }
   }
