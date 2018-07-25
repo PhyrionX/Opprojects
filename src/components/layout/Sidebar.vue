@@ -2,8 +2,8 @@
   <aside v-if="isAuth" class="sidebar">
     <section>
       <div class="menu">
-        <router-link class="menu-item" to="/"><span>Home</span></router-link>
-        <router-link class="menu-item" to="/"><span>Home</span></router-link>
+        <router-link class="menu-item" to="/"><i></i><span>Home</span></router-link>
+        <router-link class="menu-item" to="/path2"><span>Projects</span></router-link>
       </div>
     </section>
   </aside>
@@ -43,6 +43,8 @@ aside {
   }
 
   .menu {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
 
     .menu-item {
       height: calc(100% - (18px));
@@ -56,9 +58,17 @@ aside {
       padding: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
-      padding-top: 18px;
+      font-size: 14px;
+      padding: 11px 15px;
       color: #adbece;
+      border-top: 1px solid transparent;
+      border-color: rgba(255,255,255,0.05);
+
+      i {
+        width: 20px;
+        background-color: red;
+        height: 100%;
+      }
     }
   }
 

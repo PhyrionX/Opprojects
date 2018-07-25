@@ -4,7 +4,7 @@
     <section class="section">
       <app-sidebar />
       <app-main />
-    </section> 
+    </section>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <main>
     <div class="vue-view">
+      <app-breadcrumbs />
       <router-view v-if="login"></router-view>
       <app-login v-else></app-login>
     </div>
@@ -8,10 +9,12 @@
 </template>
 
 <script>
-import Login from '../Login'
+import Breadcrumbs from './Breadcrumbs';
+import Login from '../Login';
 
 export default {
   components: {
+    'app-breadcrumbs': Breadcrumbs,
     'app-login': Login
   },
   data () {
@@ -46,6 +49,7 @@ main {
   .vue-view {
     height: 100%;
     overflow-y: scroll;
+    background-color: #f7f7f7;
   }
 }
 </style>
