@@ -32,6 +32,7 @@ export default {
 html {
   overflow: hidden;
   height: 100%;
+  background-color: #2e3e4e;
 }
 body {
   margin:0;
@@ -39,7 +40,7 @@ body {
   height: 100%;
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   .container {
-    background-color: gray;
+    // background-color: gray;
     overflow: hidden;
     height: 100%;
 

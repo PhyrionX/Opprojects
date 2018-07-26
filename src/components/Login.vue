@@ -1,5 +1,10 @@
 <template>
-  <div class="loginPage">
+  <section class="login-page">
+    <div class="card">
+      <a class="navbar-brand block" href="index.html">Notebook</a>
+    </div>
+  </section>
+  <!-- <div class="loginPage">
     <div class="loginForm">
       <div class="loginHeader">
         <span>Login</span>
@@ -19,7 +24,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -44,6 +49,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.login-page {
+  margin-top: 30px;
+  padding: 20px;
+
+  width: 450px;
+
+  .card {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+  }
+}
+
 .loginPage {
   position: absolute;
   overflow: hidden;
