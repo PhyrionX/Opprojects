@@ -1,28 +1,28 @@
 <template>
   <div class="container">
-    <app-header />
-    <section class="section">
-      <app-sidebar />
-      <app-main />
-    </section>
+    <app-layout v-if="login"/>
+    <app-login v-else></app-login>
   </div>
 </template>
 
 <script>
-import Header from './components/layout/Header';
-import Sidebar from './components/layout/Sidebar';
-import MainVue from './components/layout/Main';
+import LoginVue from './components/Login.vue';
+import LayoutVue from './components/layout/Layout.vue';
 
 export default {
   name: 'app',
   components: {
-    'app-header': Header,
-    'app-sidebar': Sidebar,
-    'app-main': MainVue
+    'app-layout': LayoutVue,
+    'app-login': LoginVue
   },
   data () {
     return {
 
+    }
+  },
+  computed: {
+    login() {
+      return this.$store.state.login.isAuth;
     }
   }
 }
@@ -43,12 +43,7 @@ body {
     overflow: hidden;
     height: 100%;
 
-    .section {
-      height: 100%;
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-    }
+
   }
 }
 </style>

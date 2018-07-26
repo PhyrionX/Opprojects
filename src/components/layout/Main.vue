@@ -2,20 +2,17 @@
   <main>
     <div class="vue-view">
       <app-breadcrumbs />
-      <router-view v-if="login"></router-view>
-      <app-login v-else></app-login>
+      <router-view></router-view>
     </div>
   </main>
 </template>
 
 <script>
 import Breadcrumbs from './Breadcrumbs';
-import Login from '../Login';
 
 export default {
   components: {
-    'app-breadcrumbs': Breadcrumbs,
-    'app-login': Login
+    'app-breadcrumbs': Breadcrumbs
   },
   data () {
     return {
