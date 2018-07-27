@@ -1,7 +1,18 @@
 <template>
   <section class="login-page">
     <div class="card">
-      <a class="navbar-brand block" href="index.html">Notebook</a>
+      <!-- <a class="navbar-brand block" href="index.html">Notebook</a> -->
+      <section class="panel">
+        <header class="panel-heading">
+          <strong>Sign in</strong>
+        </header>
+        <form action="" class="panel-body">
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input type="email" placeholder="test@example.com" class="form-control input-lg">
+          </div>
+        </form>
+      </section>
     </div>
   </section>
   <!-- <div class="loginPage">
@@ -53,69 +64,117 @@ export default {
   margin-top: 30px;
   padding: 20px;
 
-  width: 450px;
+
 
   .card {
+    width: 450px;
     padding-right: 15px;
     padding-left: 15px;
     margin: 0 auto;
-  }
-}
 
-.loginPage {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  top: 30%;
+    .panel {
+      background-color: #fff;
+      border-color: #e8e8e8;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      border-radius: 2px;
+      border: 1px solid #717171;
+      box-shadow: 0 1px 1px rgba(0,0,0,.05);
 
-  .loginForm {
-    border: 2px solid green;
-    border-radius: 10px;
-    height: 200px;
-    width: 250px;
-    margin: 0 auto;
-    overflow: hidden;
+      .panel-heading {
+        color: #333;
+        background-color: #f5f5f5;
+        padding: 10px 15px;
+        border-bottom: 1px solid #e8e8e8;
+        text-align: center;
+      }
 
-    .loginHeader {
-      background-color: rgb(43, 167, 43);
-      color: white;
-      font-weight: bold;
-      padding: 5px 15px;
-    }
+      .panel-body {
+        padding: 30px;
 
-    .loginBody {
-      padding: 5px 15px;
-      height: calc(100% - (38px));
+        .form-group {
+          margin-bottom: 15px;
 
-      .formElement {
-        padding: 5px;
-        overflow: hidden;
+          label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+          }
 
-        input {
-          width: 95%
-        }
-
-        span {
-          font-weight: bold;
-          color: darkgreen;
-        }
-
-        .button {
-          background-color: green;
-          color: white;
-          margin: 0 auto;
-          width: 50px;
-          text-align: center;
-          padding: 5px 15px;
-          border-radius: 10px;
-          cursor: pointer;
-
-          &:hover {
-            background-color: darkgreen;
+          .form-control {
+              border-color: #d9d9d9;
+              border-radius: 2px;
+               height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    width: 100%;
+color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
           }
         }
       }
     }
   }
 }
+
+// .loginPage {
+//   position: absolute;
+//   overflow: hidden;
+//   width: 100%;
+//   top: 30%;
+
+//   .loginForm {
+//     border: 2px solid green;
+//     border-radius: 10px;
+//     height: 200px;
+//     width: 250px;
+//     margin: 0 auto;
+//     overflow: hidden;
+
+//     .loginHeader {
+//       background-color: rgb(43, 167, 43);
+//       color: white;
+//       font-weight: bold;
+//       padding: 5px 15px;
+//     }
+
+//     .loginBody {
+//       padding: 5px 15px;
+//       height: calc(100% - (38px));
+
+//       .formElement {
+//         padding: 5px;
+//         overflow: hidden;
+
+//         input {
+//           width: 95%
+//         }
+
+//         span {
+//           font-weight: bold;
+//           color: darkgreen;
+//         }
+
+//         .button {
+//           background-color: green;
+//           color: white;
+//           margin: 0 auto;
+//           width: 50px;
+//           text-align: center;
+//           padding: 5px 15px;
+//           border-radius: 10px;
+//           cursor: pointer;
+
+//           &:hover {
+//             background-color: darkgreen;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 </style>
