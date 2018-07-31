@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .element1 {
+    height: 100px;
+    /* background-color: red; */
+  }
+
+  .element2 {
+    height: 50px;
+    /* background-color: blue; */
+  }
+
+  .over {
+    background-color: #91e0ff;
+    border: 3px solid #0092da;
+  }
+  </style>
+  <script>
+    function clickElement(el) {
+      event.stopPropagation();
+      console.log(el);
+    }
+
+    function overmouse(el) {
+      event.stopPropagation();
+      console.log(el);
+      el.classList.add('over');
+    }
+
+    function outmouse(el) {
+      event.stopPropagation();
+      console.log(el.classList);
+      el.classList.remove('over');
+    }
+
+  </script>
+</head>
+<body>
+  <div >
+    <div class="element1" onclick="clickElement(this)" onmouseout="outmouse(this)">
+      <div class="element2" onclick="clickElement(this)"  onmouseout="outmouse(this)">aa</div>
+      <iframe class="inspect" width="420" height="315" src="https://motos.coches.net/ocasion/" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  <script>
+    var inspect = document.querySelector('.inspect');
+      inspect.addEventListener('mouseover', function(evt) {
+        overmouse(evt.target);
+    }, false);
+  </script>
+</body>
+</html>

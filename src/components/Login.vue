@@ -9,33 +9,17 @@
         <form action="" class="panel-body">
           <div class="form-group">
             <label class="control-label">Email</label>
-            <input type="email" placeholder="test@example.com" class="form-control input-lg">
+            <input type="email" placeholder="test@example.com" class="form-control input-lg" v-model="user.user">
           </div>
-        </form>
+          <div class="form-group">
+            <label class="control-label">Password</label>
+            <input type="password" placeholder="password" class="form-control input-lg" v-model="user.password">
+          </div>
+          <button type="submit" class="btn btn-primary" v-on:click="logIn()">Sign in</button>
+       </form>
       </section>
     </div>
   </section>
-  <!-- <div class="loginPage">
-    <div class="loginForm">
-      <div class="loginHeader">
-        <span>Login</span>
-      </div>
-      <div class="loginBody">
-        <div class="formElement">
-          <span>User</span><br/>
-          <input type="text" v-model="user.user">
-        </div>
-        <div class="formElement">
-          <span>Password</span><br/>
-          <input type="text" v-model="user.password">
-        </div>
-        <br/>
-        <div class="formElement">
-          <div class="button" v-on:click="logIn()">Log</div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -50,9 +34,17 @@ export default {
   },
   methods: {
     logIn() {
+      event.preventDefault();
       console.log(this.user.user, this.user.password);
-      this.$store.dispatch('logIn').then(() => {
+      let user = {
+        login: this.user.user,
+        password: this.user.password
+      }
+      this.$store.dispatch('logIn', user ).then(() => {
         console.log('ok')
+      })
+      .catch(() => {
+
       })
     }
   }
@@ -99,21 +91,53 @@ export default {
             display: inline-block;
             max-width: 100%;
             margin-bottom: 5px;
+            font-size: 13px;
+            color: #717171;
           }
 
           .form-control {
-              border-color: #d9d9d9;
-              border-radius: 2px;
-               height: 46px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
-    width: 100%;
-color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            border-color: #d9d9d9;
+            border-radius: 2px;
+            height: 46px;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+            width: 100%;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            box-sizing: border-box;
+          }
+        }
+
+        .btn-primary {
+          color: #fff !important;
+          background-color: #65bd77;
+          border-color: #65bd77;
+          border-top-color: rgb(101, 189, 119);
+          border-right-color: rgb(101, 189, 119);
+          border-bottom-color: rgb(101, 189, 119);
+          border-left-color: rgb(101, 189, 119);
+
+          display: inline-block;
+          padding: 6px 12px;
+          margin-bottom: 0;
+          font-size: 14px;
+          line-height: 1.42857143;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          user-select: none;
+          background-image: none;
+
+          &:hover {
+            color: #fff !important;
+            background-color: #53b567;
+            border-color: #4bae5f;
           }
         }
       }

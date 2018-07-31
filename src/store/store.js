@@ -33,11 +33,16 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
-    logIn(context) {
-      return new Promise((resolve) => {
+    logIn(context, payload) {
+      console.log(payload)
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
-          context.commit('logIn', {});
-          resolve();
+          if (payload.login === "phyrion") {
+            context.commit('logIn', {});
+            resolve();
+          } else {
+            reject('s');
+          }
         }, 2000)
       })
     },

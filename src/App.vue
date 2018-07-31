@@ -35,6 +35,7 @@ html {
   background-color: #2e3e4e;
 }
 body {
+  -webkit-font-smoothing: antialiased;
   margin:0;
   overflow: hidden;
   height: 100%;
