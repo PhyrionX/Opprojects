@@ -8,11 +8,11 @@ export const store = new Vuex.Store({
   state: {
     apps: [
       {id: 1, label: 'Motacas'},
-      {id: 2, label: 'OPmoney'}
+      {id: 2, label: 'OPmoney'},
+      {id: 3, label: 'Crawler Inspector'}
     ],
     login: {
       isAuth: false,
-      username: '',
       token: ''
     }
   },
@@ -20,25 +20,25 @@ export const store = new Vuex.Store({
     logIn(state, payload) {
       state.login = {
         isAuth: true,
-        username: 'Phyrion',
-        token: 'token'
+        token: payload
       }
     },
     logOut(state, payload) {
       state.login = {
         isAuth: false,
-        username: '',
         token: ''
       }
     }
   },
   actions: {
     logIn(context, payload) {
+      console.log(localStorage);
       console.log(payload)
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           if (payload.login === "phyrion") {
-            context.commit('logIn', {});
+            localStorage.setItem('token', 'soy un token XD');
+            context.commit('logIn', 'soy un token XD');
             resolve();
           } else {
             reject('s');
@@ -47,7 +47,15 @@ export const store = new Vuex.Store({
       })
     },
     logOut(context) {
+      localStorage.removeItem('token');
       context.commit('logOut', {});
+    },
+    isLogin(context) {
+      console.log('in');
+      // console.log(this.$localStorage);
+      if (localStorage.getItem('token')) {
+        context.commit('logIn', 'soy un token XD');
+      }
     }
   }
 })

@@ -24,6 +24,9 @@ export default {
     login() {
       return this.$store.state.login.isAuth;
     }
+  },
+  mounted() {
+    this.$store.dispatch('isLogin');
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <section>
       <div class="menu">
         <router-link class="menu-item" to="/"><i></i><span>Home</span></router-link>
-        <router-link class="menu-item" to="/path2"><span>Projects</span></router-link>
+        <router-link class="menu-item" to="/apps"><span>Projects</span></router-link>
       </div>
     </section>
   </aside>

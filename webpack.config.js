@@ -1,12 +1,22 @@
-var path = require('path')
-var webpack = require('webpack')
-
+var path = require('path');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: './src/main.js',
+  context: path.join(__dirname, './src'),
+  entry: {
+    main: './main.js'
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    // publicPath: '/dist/',
+    filename: 'bundle.js'
+  },
+  target: 'web',
+  resolve: {
+    extensions: ['.js', '.vue'],
+    // Fix webpack's default behavior to not load packages with jsnext:main module
+    // https://github.com/Microsoft/TypeScript/issues/11677
+    mainFields: ['main']
   },
   module: {
     rules: [
@@ -97,6 +107,11 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity
+    }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
@@ -105,6 +120,9 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
     })
   ])
 }

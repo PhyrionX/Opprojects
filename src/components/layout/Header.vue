@@ -9,7 +9,7 @@
           Home
         </span>
       </router-link>
-      <router-link class="menu-element" to="/path2">
+      <router-link class="menu-element" to="/apps">
         <span>
           Projects
         </span>
