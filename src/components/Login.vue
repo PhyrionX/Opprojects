@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     logIn() {
+      console.log(this.$http)
       event.preventDefault();
       console.log(this.user.user, this.user.password);
       let user = {

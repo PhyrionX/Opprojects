@@ -32,6 +32,10 @@ export default {
 </script>
 
 <style lang="scss">
+// * {
+//   box-sizing: border-box;
+// }
+
 html {
   overflow: hidden;
   height: 100%;

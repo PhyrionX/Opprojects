@@ -2,7 +2,9 @@
   <main>
     <div class="vue-view">
       <app-breadcrumbs />
-      <router-view></router-view>
+      <section class="padder">
+        <router-view></router-view>
+      </section>
     </div>
   </main>
 </template>
@@ -46,7 +48,12 @@ main {
   .vue-view {
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
     background-color: #f7f7f7;
+
+    .padder {
+      padding: 0 15px;
+    }
   }
 }
 </style>
