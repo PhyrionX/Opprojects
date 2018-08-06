@@ -1,9 +1,10 @@
 <template>
   <section class="apps-page panel">
     <div class="apps-list">
-      <div class="app-card" v-for="(app, index) in getApps" v-bind:key="index">
-        {{ app.label }}
-      </div>
+        <div class="app-card" @click="redirectToApp(app.id)" v-for="(app, index) in getApps" v-bind:key="index">
+          <i v-bind:class="app.img"></i><span>{{ app.label }}</span>
+        </div>
+
     </div>
   </section>
 </template>
@@ -13,6 +14,15 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    redirectToApp(id) {
+      switch(id) {
+        case 1:
+          this.$router.push('apps/opmoney');
+          break;
+      }
     }
   },
   computed: {
@@ -44,12 +54,32 @@ export default {
     box-sizing: border-box;
 
     .app-card {
-      width: 25%;
+      width: 33.333%;
       border-color: #e4e4e4;
       border-right: 1px solid #cfcfcf;
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding: 15px 30px;
+      height: 80px;
       float: left;
+      box-sizing: border-box;
+      font-size: 18px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #cecece;
+        color: white;
+      }
+
+      i {
+        padding: 5px;
+      }
+
+      @media (max-width: 992px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
   }
 }
