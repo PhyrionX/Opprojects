@@ -4,12 +4,12 @@
       <router-link to="/">OPProjects</router-link>
     </div>
     <div class="menu">
-      <router-link class="menu-element" to="/">
+      <router-link class="menu-element" to="/" exact>
         <span>
           Home
         </span>
       </router-link>
-      <router-link class="menu-element" to="/apps">
+      <router-link class="menu-element" to="/apps" exact>
         <span>
           Projects
         </span>
@@ -94,13 +94,16 @@ nav {
       padding: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 13px;
       padding-top: 18px;
       color: #adbece;
 
       &:hover {
         background-color: #1b252e;
         color: white;
+      }
+      &.router-link-active{
+        background-color: #1b252e;
       }
     }
   }

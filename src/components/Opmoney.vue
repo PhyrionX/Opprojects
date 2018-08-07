@@ -21,8 +21,8 @@
           </div>
         </header>
         <div class="body">
-          <div class="variable-spend">s s</div>
-          <div>a</div>
+          <div class="add">s s</div>
+          <div class="add">a</div>
         </div>
         <footer v-if="index >= startIn">
           {{saldo + (salary * (index - startIn))}}
@@ -107,7 +107,7 @@ export default {
         display: table-row;
         vertical-align: middle;
 
-        .variable-spend {
+        .add {
           height: 25px;
           cursor: pointer;
 

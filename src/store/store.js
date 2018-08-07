@@ -6,8 +6,10 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   strict: true,
   state: {
-    apps: [
-    ],
+    apps:{
+      apps: [],
+      selected: {}
+    },
     login: {
       isAuth: false,
       token: '',
@@ -30,7 +32,10 @@ export const store = new Vuex.Store({
       }
     },
     setApps(state, payload) {
-      state.apps = payload;
+      state.apps.apps = payload;
+    },
+    setApp(state, payload) {
+      state.apps.selected = payload;
     }
   },
   actions: {
@@ -47,17 +52,6 @@ export const store = new Vuex.Store({
           username: payload.login
         });
       })
-      //   => {
-      //   setTimeout(() => {
-      //     if (payload.login === "phyrion") {
-      //       localStorage.setItem('token', 'soy un token XD');
-      //       context.commit('logIn', 'soy un token XD');
-      //       resolve();
-      //     } else {
-      //       reject('s');
-      //     }
-      //   }, 2000)
-      // })
     },
     setApps(context) {
       console.log(context.state.login.token)
@@ -69,6 +63,9 @@ export const store = new Vuex.Store({
         context.commit('setApps', response.data);
       })
 
+    },
+    setApp(context, payload) {
+      context.commit('setApp', payload);
     },
     logOut(context) {
       localStorage.removeItem('token');

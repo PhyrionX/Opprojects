@@ -1,7 +1,7 @@
 <template>
   <section class="apps-page panel">
     <div class="apps-list">
-        <div class="app-card" @click="redirectToApp(app.id)" v-for="(app, index) in getApps" v-bind:key="index">
+        <div class="app-card" @click="redirectToApp(app)" v-for="(app, index) in getApps" v-bind:key="index">
           <i v-bind:class="app.img"></i><span>{{ app.label }}</span>
         </div>
 
@@ -17,9 +17,10 @@ export default {
     }
   },
   methods: {
-    redirectToApp(id) {
-      switch(id) {
+    redirectToApp(app) {
+      switch(app.id) {
         case 1:
+          this.$store.dispatch('setApp', app);
           this.$router.push('apps/opmoney');
           break;
       }
@@ -27,7 +28,7 @@ export default {
   },
   computed: {
     getApps() {
-      return this.$store.state.apps;
+      return this.$store.state.apps.apps;
     }
   },
   mounted() {

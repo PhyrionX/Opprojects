@@ -1,7 +1,7 @@
 <template>
   <aside v-if="isAuth" class="sidebar">
     <section>
-      <div class="menu">
+      <div class="menu" v-if="getApp">
         <router-link class="menu-item" to="/"><i></i><span>Home</span></router-link>
         <router-link class="menu-item" to="/apps"><span>Projects</span></router-link>
       </div>
@@ -19,6 +19,9 @@ export default {
   computed: {
     isAuth() {
       return this.$store.state.login.isAuth;
+    },
+    getApp() {
+      return this.$store.state.apps.selected.id !== undefined;
     }
   },
   methods: {
